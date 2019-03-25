@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 作者：tangren on 2019/3/22
  * 包名：com.tr.thread.pool
  * 邮箱：996489865@qq.com
- * TODO:线程池
+ * TODO:线程池管理类（周期任务+普通任务）
  */
 
 public class ThreadPoosManager {
@@ -37,7 +37,7 @@ public class ThreadPoosManager {
 
     private ThreadPoosManager() {
         //队列大小为核心线程的3倍
-        BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>(coreSize * 3);
+        BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>(30);
         ThreadFactory factory = r -> {
             Thread thread = new Thread(r);
             thread.setPriority(Thread.NORM_PRIORITY);
